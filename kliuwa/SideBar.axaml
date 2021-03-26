@@ -1,0 +1,56 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Style Selector="TabControl.sidebar">
+    <Setter Property="TabStripPlacement" Value="Left"/>
+    <Setter Property="Padding" Value="8 0 0 0"/>
+    <Setter Property="Background" Value="#ED6C70"/>
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border
+            Margin="{TemplateBinding Margin}"
+            BorderBrush="{TemplateBinding BorderBrush}"
+            BorderThickness="{TemplateBinding BorderThickness}">
+          <DockPanel>
+            <ScrollViewer
+                Name="PART_ScrollViewer"
+                HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
+                Background="{TemplateBinding Background}">
+              <ItemsPresenter
+                  Name="PART_ItemsPresenter"
+                  Items="{TemplateBinding Items}"
+                  ItemsPanel="{TemplateBinding ItemsPanel}"
+                  ItemTemplate="{TemplateBinding ItemTemplate}">
+              </ItemsPresenter>
+            </ScrollViewer>
+            <ContentPresenter
+                Name="PART_SelectedContentHost"
+                Margin="{TemplateBinding Padding}"
+                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                Content="{TemplateBinding SelectedContent}"
+                ContentTemplate="{TemplateBinding SelectedContentTemplate}">
+            </ContentPresenter>
+          </DockPanel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+
+  <Style Selector="TabControl.sidebar > TabItem">
+    <Setter Property="BorderThickness" Value="0"/>
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="FontSize" Value="14"/>
+    <Setter Property="Margin" Value="0"/>
+    <Setter Property="Padding" Value="16"/>
+  </Style>
+  <Style Selector="TabControl.sidebar > TabItem:selected /template/ Border#PART_SelectedPipe">
+    <Setter Property="IsVisible" Value="False" />
+  </Style>
+  <Style Selector="TabControl.sidebar > TabItem:pointerover /template/ Border#PART_LayoutRoot">
+    <Setter Property="Background" Value="#B94357"/>
+  </Style>
+  <Style Selector="TabControl.sidebar > TabItem:selected /template/ Border#PART_LayoutRoot">
+    <Setter Property="Background" Value="#7A1139"/>
+  </Style>
+</Styles>
